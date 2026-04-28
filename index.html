@@ -51,6 +51,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            text-align: center;
         }
         .menu-card img {
             width: 100%;
@@ -59,7 +60,6 @@
         }
         .menu-card .details {
             padding: 15px;
-            text-align: center;
         }
         .menu-card .details h2 {
             font-size: 1.5rem;
@@ -71,37 +71,113 @@
             font-size: 1rem;
             font-weight: 500;
         }
+        .add-to-cart {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            background-color: #ff5555;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
+    <script>
+        let cartCount = 0;
+
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Кофейня</h1>
     </header>
     <div class="banner">
-        <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/4b589d82-1b38-4cc4-a817-6a43847a3be7.jpg" alt="Главный баннер">
+        <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/3c3dbbfc-e533-4d04-bc1e-094ac58fad1e.jpg" alt="Главный баннер">
     </div>
     <section class="menu-section">
         <div class="menu-card">
-            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/7f9d786c-41cb-490c-833f-be92358c8323.jpg" alt="Кофе амаретто">
+            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/7641defd-a072-441f-8559-e89a43db6e2a.jpg" alt="Кофе амаретто">
             <div class="details">
                 <h2>Кофе Амаретто</h2>
                 <p class="price">150 руб</p>
+                <button class="add-to-cart" onclick="addToCart()">В корзину</button>
             </div>
         </div>
         <div class="menu-card">
-            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/289c2226-6f65-47fd-971f-e06d717a4b0e.jpg" alt="Капучино">
+            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/10396a09-0318-4cd7-ba70-db949e6a87a3.jpg" alt="Капучино">
             <div class="details">
                 <h2>Капучино</h2>
                 <p class="price">120 руб</p>
+                <button class="add-to-cart" onclick="addToCart()">В корзину</button>
             </div>
         </div>
         <div class="menu-card">
-            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/4b589d82-1b38-4cc4-a817-6a43847a3be7.jpg" alt="Эспрессо">
+            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/3c3dbbfc-e533-4d04-bc1e-094ac58fad1e.jpg" alt="Эспрессо">
             <div class="details">
                 <h2>Эспрессо</h2>
                 <p class="price">100 руб</p>
+                <button class="add-to-cart" onclick="addToCart()">В корзину</button>
             </div>
         </div>
     </section>
+    <div class="cart-icon" id="cart-count">0</div>
 </body>
 </html>
+
+-- SQL-миграция (db_migrations/create_orders_table.sql) --
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Обработчик (backend/save_order.php) --
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "coffee_shop";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$product_name = $_POST['product_name'];
+$price = $_POST['price'];
+$quantity = $_POST['quantity'];
+
+$sql = "INSERT INTO orders (product_name, price, quantity) VALUES ('$product_name', '$price', '$quantity')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+
+-- Изменённые файлы:
+1. index.html (главный файл сайта)
+2. db_migrations/create_orders_table.sql (SQL-миграция)
+3. backend/save_order.php (обработчик для сохранения заказов)
