@@ -1,81 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Магазин Продуктов</title>
-    <base href="/Lumin-platform/">
-    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мото Визитка</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.4/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-900">
 
-<!-- Top Banner -->
-<div class="bg-yellow-500 text-center py-4 text-lg font-bold">
-    Распродажа! Скидка до 30% на выбранные продукты!
-</div>
-
 <!-- Header -->
-<header class="bg-green-900 text-white">
-    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-        <div class="text-2xl font-bold">Магазин Продуктов</div>
-        <div id="cart-count" class="text-lg">
-            Корзина: <span id="cart-number">0</span>
-        </div>
-    </div>
+<header class="bg-blue-800 text-white p-6">
+    <h1 class="text-4xl font-bold text-center">Мото Визитка</h1>
+    <p class="text-lg text-center">Ваш надежный мотопартнер</p>
 </header>
 
-<!-- Main Section -->
+<!-- Main Content -->
 <main class="container mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Card 1 -->
-        <div class="bg-white p-6 shadow-md rounded-lg">
-            <h3 class="text-xl font-semibold mb-2">Яблоки</h3>
-            <p class="text-gray-700 mb-4">Сочные красные яблоки</p>
-            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="addToCart()">В корзину</button>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-white p-6 shadow-md rounded-lg">
-            <h3 class="text-xl font-semibold mb-2">Бананы</h3>
-            <p class="text-gray-700 mb-4">Сладкие желтые бананы</p>
-            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="addToCart()">В корзину</button>
-        </div>
-        <!-- Card 3 -->
-        <div class="bg-white p-6 shadow-md rounded-lg">
-            <h3 class="text-xl font-semibold mb-2">Апельсины</h3>
-            <p class="text-gray-700 mb-4">Сочные апельсины</p>
-            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="addToCart()">В корзину</button>
-        </div>
-        <!-- Card 4 -->
-        <div class="bg-white p-6 shadow-md rounded-lg">
-            <h3 class="text-xl font-semibold mb-2">Груши</h3>
-            <p class="text-gray-700 mb-4">Сладкие и сочные груши</p>
-            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="addToCart()">В корзину</button>
-        </div>
-    </div>
+    <section class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-4">О нас</h2>
+        <p class="text-gray-700 mb-4">Мы - команда мотоциклистов, предлагающая услуги по продаже, ремонту и обслуживанию мотоциклов. Наша цель - сделать ваши поездки безопасными и комфортными.</p>
+
+        <h2 class="text-2xl font-semibold mb-4">Услуги</h2>
+        <ul class="list-disc list-inside mb-4">
+            <li>Продажа мотоциклов</li>
+            <li>Ремонт и обслуживание</li>
+            <li>Настройка и тюнинг</li>
+            <li>Продаем запчасти и аксессуары</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mb-4">Контактная информация</h2>
+        <p class="text-gray-700 mb-2">Телефон: <a href="tel:+79991234567" class="text-blue-500">+7 (999) 123-45-67</a></p>
+        <p class="text-gray-700 mb-2">Email: <a href="mailto:info@motovizitka.ru" class="text-blue-500">info@motovizitka.ru</a></p>
+        <p class="text-gray-700">Адрес: г. Москва, ул. Мотоциклетная, 1</p>
+    </section>
 </main>
 
-<!-- Notification -->
-<div id="notification" class="hidden fixed top-10 right-5 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg">
-    Товар добавлен!
-</div>
-
-<script>
-    let cartNumber = 0;
-
-    function addToCart() {
-        cartNumber++;
-        document.getElementById('cart-number').textContent = cartNumber;
-
-        // Show the notification
-        const notification = document.getElementById('notification');
-        notification.classList.remove('hidden');
-
-        // Hide the notification after 2 seconds
-        setTimeout(() => {
-            notification.classList.add('hidden');
-        }, 2000);
-    }
-</script>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white text-center p-4">
+    <p>© 2023 Мото Визитка. Все права защищены.</p>
+</footer>
 
 </body>
 </html>
