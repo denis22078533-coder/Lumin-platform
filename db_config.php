@@ -1,4 +1,3 @@
-```php
 <?php
 $servername = "localhost"; // Хост
 $username = "your_username"; // Логин
