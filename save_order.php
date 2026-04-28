@@ -1,6 +1,5 @@
-```php
 <?php
-include 'db_config.php'; // Подключение файла конфигурации
+include 'db_config.php';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -14,9 +13,9 @@ $quantity = $_POST['quantity'];
 $sql = "INSERT INTO orders (product_name, price, quantity) VALUES ('$product_name', '$price', '$quantity')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "Заказ успешно создан";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Ошибка: " . $conn->error;
 }
 
 $conn->close();
