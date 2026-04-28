@@ -1,162 +1,143 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="en">
 <head>
-  <base href="https://denis22078533-coder.github.io/lumin-platform/">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.11/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-react@0.462.0/dist/lucide-react.css">
-    <style>
-        * {
-            border-color: #ffffff30;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Система управления для автосервиса</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-react@0.462.0/dist/lucide-react.css">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <div class="max-w-6xl mx-auto px-4 py-6">
+    <header class="mb-6">
+      <h1 class="text-2xl font-bold flex items-center">
+        <span class="mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 13h16M4 17h16M10 9h4M3 5h18M9 21h6" /></svg>
+        </span>
+        Система управления для автосервиса
+      </h1>
+    </header>
+    <!-- Таблица со списком машин -->
+    <div class="overflow-x-auto bg-white rounded shadow">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr>
+            <th class="px-4 py-2 border-b font-bold">Марка машины</th>
+            <th class="px-4 py-2 border-b font-bold">Госномер</th>
+            <th class="px-4 py-2 border-b font-bold">Статус</th>
+            <th class="px-4 py-2 border-b font-bold">Действия</th>
+          </tr>
+        </thead>
+        <tbody id="carsTable">
+          <!-- Данные заполняются из JavaScript -->
+        </tbody>
+      </table>
+    </div>
+    <button id="addRecordBtn" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Добавить запись</button>
+  </div>
 
-        body {
-            background-color: rgba(0, 0, 0, 0.05);
-            color: rgba(255, 255, 255, 0.87);
-            font-family: 'Roboto', sans-serif;
-            overflow-x: hidden;
-        }
+  <!-- Модальное окно -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity">
+    <div class="bg-white rounded-lg shadow-lg max-w-md w-full px-4 py-6">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Детали машины</h2>
+        <button id="closeModalBtn" class="text-gray-500 hover:text-gray-800">&times;</button>
+      </div>
+      <div id="modalContent">
+        <!-- Заполняется JavaScript -->
+      </div>
+    </div>
+  </div>
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 0.02em;
-        }
+  <script>
+    // Пример данных
+    const cars = [
+      { id: 1, brand: "Toyota", license: "A123BC", status: "В ремонте", works: ["Замена масла", "Смена шин"] },
+      { id: 2, brand: "BMW", license: "B456DE", status: "Готово", works: ["Диагностика двигателя"] },
+      { id: 3, brand: "Audi", license: "C789FG", status: "Ожидание", works: ["Замена аккумулятора"] },
+    ];
 
-        .font-oswald {
-            font-family: 'Oswald', sans-serif;
-        }
+    // Ссылки на элементы
+    const carsTable = document.getElementById("carsTable");
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modalContent");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const addRecordBtn = document.getElementById("addRecordBtn");
 
-        .font-roboto {
-            font-family: 'Roboto', sans-serif;
-        }
+    // Отрисовка таблицы
+    function renderTable() {
+      carsTable.innerHTML = cars.map(car => `
+        <tr>
+          <td class="border-t px-4 py-2">${car.brand}</td>
+          <td class="border-t px-4 py-2">${car.license}</td>
+          <td class="border-t px-4 py-2">${car.status}</td>
+          <td class="border-t px-4 py-2">
+            <button data-id="${car.id}" class="detailsBtn bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">Детали</button>
+          </td>
+        </tr>
+      `).join('');
+    }
 
-        .live-pulse {
-            animation: live-blink 1.5s ease-in-out infinite;
-        }
+    // Открытие модального окна
+    function openModal(carId) {
+      const car = cars.find(c => c.id === carId);
+      if (car) {
+        modalContent.innerHTML = `
+          <p><strong>Марка:</strong> ${car.brand}</p>
+          <p><strong>Госномер:</strong> ${car.license}</p>
+          <p><strong>Работы:</strong> ${car.works.join(", ")}</p>
+        `;
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        modal.classList.add("opacity-100");
+      }
+    }
 
-        .card-hover {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    // Закрытие модального окна
+    closeModalBtn.addEventListener("click", () => {
+      modal.classList.add("opacity-0", "pointer-events-none");
+      modal.classList.remove("opacity-100");
+    });
 
-        .card-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(255, 90, 0, 0.15);
-        }
+    // Обработка кликов на кнопки "Детали"
+    carsTable.addEventListener("click", (e) => {
+      if (e.target.classList.contains("detailsBtn")) {
+        const carId = parseInt(e.target.dataset.id, 10);
+        openModal(carId);
+      }
+    });
 
-        .nav-glow {
-            box-shadow: 0 -1px 20px rgba(255, 90, 0, 0.08);
-        }
+    // Подготовка добавления записи (заглушка)
+    addRecordBtn.addEventListener("click", () => {
+      alert("Функция добавления записи пока не реализована.");
+    });
 
-        .feed-gradient {
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
-        }
-
-        .fire-gradient {
-            background: linear-gradient(135deg, #ff5a00 0%, #ff3d00 50%, #cc1a00 100%);
-        }
-
-        .dark-gradient {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-        }
-
-        .text-glow {
-            text-shadow: 0 0 20px rgba(255, 90, 0, 0.5);
-        }
-
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-
-        @keyframes live-blink {
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slide-up {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fade-in 0.4s ease forwards;
-        }
-
-        .animate-slide-up {
-            animation: slide-up 0.35s ease forwards;
-        }
-
-        .stagger-1 {
-            animation-delay: 0.05s;
-        }
-
-        .stagger-2 {
-            animation-delay: 0.1s;
-        }
-
-        .stagger-3 {
-            animation-delay: 0.15s;
-        }
-
-        .stagger-4 {
-            animation-delay: 0.2s;
-        }
-
-        .stagger-5 {
-            animation-delay: 0.25s;
-        }
-    </style>
-<style data-lumen-fix>
-      html,body{background:#ffffff!important;color:#111111!important;}
-    </style></head>
-
-<body>
-    <div id="root"></div>
-    <script>
-        // Here, you would write the entire JavaScript needed to make
-        // your application work. Make sure you include logic for all
-        // components, routing, state management, and any other features.
-        
-        // Import necessary libraries, such as React and ReactDOM.
-        // Define components like App, ChatPanel, and LumenApp.
-    </script>
+    // Инициализация приложения
+    renderTable();
+  </script>
 </body>
-
 </html>
+
+---
+
+### SQL-запрос для таблицы `repairs`:
+```sql
+CREATE TABLE repairs (
+  id SERIAL PRIMARY KEY,
+  brand VARCHAR(50) NOT NULL,
+  license_plate VARCHAR(20) NOT NULL,
+  status VARCHAR(20) NOT NULL,
+  works TEXT[] NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+---
+
+### Почему это решение:
+1. **Tailwind CSS**: Всё выглядит современно и минималистично.
+2. **Модульность**: Логика и интерфейс разделены, что упрощает поддержку.
+3. **Производительность**: Приложение работает быстро с минимальными ресурсами.
+4. **Обработка ошибок**: Модальное окно показывает только данные существующих записей.
+5. **База данных**: Гибкая структура таблицы для хранения массивов работ по ремонту.
+
+Если нужно что-то уточнить или доработать, дайте знать!
