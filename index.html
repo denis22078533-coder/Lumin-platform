@@ -1,68 +1,101 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин Продуктов</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.4/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+    <title>MOTO FEED — Мотоспорт</title>
+    <meta name="description" content="Мотоспорт и автоспорт — события, гонки, трансляции"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="author" content="poehali.dev"/>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <meta property="og:title" content="Поехали!">
+    <meta property="og:description" content="Ваш личный программист, который делает сайты в 30 раз быстрее обычного.">
+    <meta property="og:image:width" content="4800">
+    <meta property="og:image:height" content="2520">
+    <meta property="og:image:alt" content="Поехали! — сервис разработки сайтов с помощью ИИ">
+    <meta property="og:image" content="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/files/og-image-1777188762295.jpg">
+    <meta name="twitter:image" content="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/files/og-image-1777188762295.jpg">
+
+    <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
+    <script src="https://cdn.poehali.dev/intertnal/js/route-min.js"></script>
+    <script src="https://cdn.poehali.dev/intertnal/js/telemetry-min.js"></script>
+    <meta name="pp-name" value="motorsport-progress-app">
+    <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
     <style>
-        .hero {
-            object-fit: cover;
-            height: 400px;
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
         }
-        .product-img {
-            object-fit: cover;
-            width: 100%;
-            height: 200px;
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .add-to-cart:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
-<body class="bg-white text-gray-900">
 
-<!-- Header -->
-<header class="bg-green-600 text-white p-6">
-    <h1 class="text-4xl font-bold text-center">Магазин Продуктов</h1>
-</header>
+<body>
+<div id="root">
+    <div class="product">
+        <h2>Продукт 1</h2>
+        <p>Описание продукта 1</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <h2>Продукт 2</h2>
+        <p>Описание продукта 2</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <h2>Продукт 3</h2>
+        <p>Описание продукта 3</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+</div>
+<script type="module" src="/src/main.tsx"></script>
 
-<!-- Hero Section -->
-<section>
-    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/434794c5-9ee0-4c21-826c-e194e3e91a47.jpg" alt="Главный баннер" class="hero w-full">
-</section>
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) {
+                return;
+            }
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-<!-- Main Content -->
-<main class="container mx-auto px-4 py-8">
-    <section class="bg-white shadow-lg rounded-lg p-6 mb-6">
-        <h2 class="text-2xl font-semibold mb-4">Наши Продукты</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="bg-gray-100 rounded-lg overflow-hidden shadow">
-                <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/e44e3e48-0c51-49d7-8120-8ddd7006982b.jpg" alt="Продукт 1" class="product-img">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold">Продукт 1</h3>
-                    <p class="text-gray-700">Описание продукта 1.</p>
-                </div>
-            </div>
-            <div class="bg-gray-100 rounded-lg overflow-hidden shadow">
-                <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/f938785c-0753-4ded-8533-65614a7fdd7f.jpg" alt="Продукт 2" class="product-img">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold">Продукт 2</h3>
-                    <p class="text-gray-700">Описание продукта 2.</p>
-                </div>
-            </div>
-            <div class="bg-gray-100 rounded-lg overflow-hidden shadow">
-                <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/e44e3e48-0c51-49d7-8120-8ddd7006982b.jpg" alt="Продукт 3" class="product-img">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold">Продукт 3</h3>
-                    <p class="text-gray-700">Описание продукта 3.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<!-- Footer -->
-<footer class="bg-green-600 text-white text-center p-4">
-    <p>© 2023 Магазин Продуктов. Все права защищены.</p>
-</footer>
-
+    ym(101026698, "init", {
+        trustedDomains: ["poehali.dev"],
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+        trackHash: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/101026698" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
 </body>
 </html>
