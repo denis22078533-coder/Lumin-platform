@@ -3,102 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Продуктовый магазин</title>
+    <title>Косметолог «БЮ»</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
     <!-- Hero Section -->
-    <header class="relative">
-        <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/bce34456-1eb5-4bf5-a08c-7749bea6f1c7.jpg" 
-             alt="Свежие продукты" 
-             class="w-full h-[400px] object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h1 class="text-4xl md:text-6xl text-white font-bold text-center">
-                Приветствуем в нашем продуктовом магазине
-            </h1>
+    <header class="relative bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="container mx-auto px-4 py-24 relative z-10 flex flex-col items-center text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Косметолог «БЮ»</h1>
+            <p class="text-xl md:text-2xl font-medium mb-6">Ваш путь к сияющей коже и уверенности в себе</p>
+            <a href="#booking" class="bg-white text-pink-600 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-200 transition duration-300">
+                Записаться на прием
+            </a>
         </div>
     </header>
 
-    <!-- Product Categories Section -->
-    <section class="py-12 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <h2 class="text-3xl font-bold text-center mb-8">Категории продуктов</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Category 1 -->
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/65e434f5-31bc-4911-90f9-6dcc9ed4d634.jpg" 
-                         alt="Овощи и фрукты" 
-                         class="w-full h-[200px] object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Овощи и фрукты</h3>
-                        <p class="text-gray-700">Свежие и натуральные продукты для вашего здоровья.</p>
+    <!-- Advantages Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-4xl font-bold mb-12">Почему выбирают нас?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="fade-in bg-white shadow-lg rounded-lg p-8">
+                    <div class="flex items-center justify-center text-pink-600 mb-4">
+                        <svg class="h-10 w-10" data-lucide="smile"></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Безопасность</h3>
+                    <p class="text-gray-600">Только сертифицированные специалисты и проверенные методики.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-8">
+                    <div class="flex items-center justify-center text-pink-600 mb-4">
+                        <svg class="h-10 w-10" data-lucide="heart"></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Индивидуальный подход</h3>
+                    <p class="text-gray-600">Мы разрабатываем персональный план ухода для каждого клиента.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-8">
+                    <div class="flex items-center justify-center text-pink-600 mb-4">
+                        <svg class="h-10 w-10" data-lucide="star"></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Современные технологии</h3>
+                    <p class="text-gray-600">Используем новейшее оборудование для потрясающих результатов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-gray-100 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-4xl font-bold mb-12">Услуги</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="fade-in bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Чистка лица</h3>
+                    <p class="text-gray-600">Глубокое очищение кожи от загрязнений.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Пилинг</h3>
+                    <p class="text-gray-600">Обновление кожи и устранение несовершенств.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Ботокс</h3>
+                    <p class="text-gray-600">Коррекция морщин и естественное омоложение.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Массаж лица</h3>
+                    <p class="text-gray-600">Для упругости и расслабления вашей кожи.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Контурная пластика</h3>
+                    <p class="text-gray-600">Ювелирная работа с формой лица.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-4">Профессиональный уход</h3>
+                    <p class="text-gray-600">Комплексные процедуры для вашего сияния.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-4xl font-bold mb-12">Отзывы наших клиентов</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="fade-in bg-white shadow-lg rounded-lg p-6">
+                    <p class="text-gray-600 mb-6">«Прошла курс пилинга — кожа сияет и выглядит потрясающе!»</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/48" alt="Avatar" class="rounded-full w-12 h-12 mr-4">
+                        <div>
+                            <h4 class="text-lg font-semibold">Анна К.</h4>
+                            <p class="text-gray-500">Клиент</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Category 2 -->
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/57822229-f665-4327-b6ba-5be2825b7ffa.jpg" 
-                         alt="Молочные продукты" 
-                         class="w-full h-[200px] object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Молочные продукты</h3>
-                        <p class="text-gray-700">Натуральные молочные продукты от лучших производителей.</p>
-                    </div>
-                </div>
-                <!-- Category 3 -->
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/bce34456-1eb5-4bf5-a08c-7749bea6f1c7.jpg" 
-                         alt="Бакалея" 
-                         class="w-full h-[200px] object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Бакалея</h3>
-                        <p class="text-gray-700">Крупы, макароны, специи и другое.</p>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-6">
+                    <p class="text-gray-600 mb-6">«Отличный ботокс, естественный результат, всем рекомендую!»</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/48" alt="Avatar" class="rounded-full w-12 h-12 mr-4">
+                        <div>
+                            <h4 class="text-lg font-semibold">Марина Л.</h4>
+                            <p class="text-gray-500">Клиент</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section class="bg-green-500 text-white py-12">
-        <div class="container mx-auto max-w-5xl text-center">
-            <h2 class="text-3xl font-bold mb-4">Узнайте больше о нашей продукции</h2>
-            <p class="text-lg mb-6">Мы заботимся о вашем питании и предлагаем только лучшие продукты.</p>
-            <button class="bg-white text-green-500 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-200">
-                Подробнее
-            </button>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="py-12 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <h2 class="text-3xl font-bold text-center mb-8">Галерея</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/65e434f5-31bc-4911-90f9-6dcc9ed4d634.jpg" 
-                     alt="Галерея 1" 
-                     class="w-full h-[300px] rounded-lg object-cover shadow-md">
-                <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/57822229-f665-4327-b6ba-5be2825b7ffa.jpg" 
-                     alt="Галерея 2" 
-                     class="w-full h-[300px] rounded-lg object-cover shadow-md">
-                <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/bce34456-1eb5-4bf5-a08c-7749bea6f1c7.jpg" 
-                     alt="Галерея 3" 
-                     class="w-full h-[300px] rounded-lg object-cover shadow-md">
-            </div>
+    <!-- Booking Section -->
+    <section id="booking" class="bg-pink-500 text-white py-16 px-4">
+        <div class="container mx-auto max-w-lg text-center">
+            <h2 class="text-4xl font-bold mb-6">Запишитесь на прием</h2>
+            <p class="text-lg mb-8">Оставьте заявку, и мы свяжемся с вами для подтверждения времени.</p>
+            <form action="#" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Ваше имя" required class="w-full py-3 px-4 rounded-lg text-gray-900 focus:outline-none">
+                <input type="tel" name="phone" placeholder="Ваш телефон" required class="w-full py-3 px-4 rounded-lg text-gray-900 focus:outline-none">
+                <button type="submit" class="w-full bg-white text-pink-600 font-semibold py-3 px-4 rounded-lg hover:bg-gray-200 transition duration-300">
+                    Записаться
+                </button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto max-w-6xl text-center">
-            <p>&copy; 2023 Продуктовый магазин. Все права защищены.</p>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Косметолог «БЮ». Все права защищены.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" aria-label="Instagram"><svg class="h-6 w-6" data-lucide="instagram"></svg></a>
+                <a href="#" aria-label="Facebook"><svg class="h-6 w-6" data-lucide="facebook"></svg></a>
+                <a href="#" aria-label="Vk"><svg class="h-6 w-6" data-lucide="vk"></svg></a>
+            </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+            document.querySelectorAll('.fade-in').forEach(element => observer.observe(element));
+        });
+    </script>
 </body>
 </html>
