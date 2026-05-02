@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Косметолог «БЮ»</title>
+    <title>Транспортная компания «ПК»</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,6 +12,12 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-image {
+            height: 500px;
+            object-fit: cover;
         }
 
         .fade-in {
@@ -24,73 +30,44 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        .carousel {
-            position: relative;
-            overflow: hidden;
-            height: 500px;
-        }
-
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel img {
-            flex: 0 0 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel-nav button {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 50%;
-        }
-
-        .carousel-nav button:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
-    <!-- Hero Carousel -->
-    <div class="carousel">
-        <div id="carouselImages" class="carousel-images">
-            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/f1d0c96d-fba7-4695-a697-db19ac744f83.jpg" alt="Процедура 1">
-            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/9a6d9c20-1d22-452e-bc98-319beebd39f6.jpg" alt="Процедура 2">
-            <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/4945cc7e-7d24-4148-93ea-6db5eb2c44b0.jpg" alt="Процедура 3">
-        </div>
-        <div class="carousel-nav">
-            <button onclick="prevSlide()">‹</button>
-            <button onclick="nextSlide()">›</button>
-        </div>
-    </div>
-
-    <!-- Intro Section -->
-    <section class="py-16 px-4">
-        <div class="container mx-auto max-w-6xl text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Косметолог «БЮ»</h1>
-            <p class="text-xl md:text-2xl font-medium mb-6">
-                Ваш путь к красоте начинается здесь. Профессиональные процедуры для сияния и уверенности!
+    <!-- Hero Section -->
+    <section class="relative">
+        <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/a64a2280-a8d1-408f-b047-0b5ef51a55f2.jpg" alt="Транспортная компания ПК" class="w-full hero-image">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center text-center text-white">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Транспортная компания «ПК»</h1>
+            <p class="text-xl md:text-2xl font-medium mb-8">
+                Надёжные перевозки грузов по всей стране. Прозрачные цены и высокое качество сервиса.
             </p>
-            <a href="#booking" class="bg-pink-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-pink-600 transition duration-300">
-                Записаться на прием
+            <a href="#calc" class="bg-yellow-500 text-black font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-600 transition duration-300">
+                Рассчитать стоимость
             </a>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="py-16 px-4 text-center">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold mb-12">Преимущества работы с нами</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="fade-in bg-white shadow-lg rounded-lg p-8">
+                    <i class="text-5xl lucide lucide-package"></i>
+                    <h3 class="text-2xl font-semibold my-4">Безопасность</h3>
+                    <p class="text-gray-600">Ваш груз в надёжных руках. Мы гарантируем его сохранность на каждом этапе пути.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-8">
+                    <i class="text-5xl lucide lucide-clock"></i>
+                    <h3 class="text-2xl font-semibold my-4">Оперативность</h3>
+                    <p class="text-gray-600">Мы ценим ваше время и доставляем грузы точно в срок, без задержек.</p>
+                </div>
+                <div class="fade-in bg-white shadow-lg rounded-lg p-8">
+                    <i class="text-5xl lucide lucide-signal"></i>
+                    <h3 class="text-2xl font-semibold my-4">Прозрачность</h3>
+                    <p class="text-gray-600">Полная информация о маршруте, страховании и стоимости всегда доступна для вас.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -98,47 +75,67 @@
     <section class="py-16 bg-gray-100 px-4">
         <div class="container mx-auto max-w-6xl text-center">
             <h2 class="text-4xl font-bold mb-12">Наши услуги</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="fade-in bg-white shadow-lg rounded-lg p-8">
-                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/4945cc7e-7d24-4148-93ea-6db5eb2c44b0.jpg" alt="Глубокое очищение" class="w-full rounded-lg mb-4" style="height: 200px; object-fit: cover;">
-                    <h3 class="text-2xl font-semibold mb-4">Чистка лица</h3>
-                    <p class="text-gray-600">Глубокое очищение кожи улучшит её текстуру и цвет.</p>
+                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/ff397b1a-3107-4d75-b312-ebd416c080e3.jpg" alt="Грузовые перевозки" class="w-full rounded-lg mb-4" style="height: 200px; object-fit: cover;">
+                    <h3 class="text-2xl font-semibold mb-4">Грузовые перевозки</h3>
+                    <p class="text-gray-600">Перевозка груза любой сложности на короткие и длинные расстояния.</p>
                 </div>
                 <div class="fade-in bg-white shadow-lg rounded-lg p-8">
-                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/9a6d9c20-1d22-452e-bc98-319beebd39f6.jpg" alt="Массаж лица" class="w-full rounded-lg mb-4" style="height: 200px; object-fit: cover;">
-                    <h3 class="text-2xl font-semibold mb-4">Массаж лица</h3>
-                    <p class="text-gray-600">Стимулируем кровообращение и возвращаем молодость.</p>
+                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/b7cd2567-bf54-4cb2-b25f-b8a537324335.jpg" alt="Экспресс-доставка" class="w-full rounded-lg mb-4" style="height: 200px; object-fit: cover;">
+                    <h3 class="text-2xl font-semibold mb-4">Экспресс-доставка</h3>
+                    <p class="text-gray-600">Мгновенная доставка по городу и в ближайшие регионы.</p>
                 </div>
                 <div class="fade-in bg-white shadow-lg rounded-lg p-8">
-                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/f1d0c96d-fba7-4695-a697-db19ac744f83.jpg" alt="Контурная пластика" class="w-full rounded-lg mb-4" style="height: 200px; object-fit: cover;">
-                    <h3 class="text-2xl font-semibold mb-4">Контурная пластика</h3>
-                    <p class="text-gray-600">Мы совершенствуем контуры вашего лица с невероятной точностью.</p>
+                    <img src="https://cdn.poehali.dev/projects/4fe9d363-5216-44d6-8799-40a6f4aeed69/bucket/lumen-images/ff397b1a-3107-4d75-b312-ebd416c080e3.jpg" alt="Международные перевозки" class="w-full rounded-lg mb-4" style="height: 200px; object-fit: cover;">
+                    <h3 class="text-2xl font-semibold mb-4">Международные перевозки</h3>
+                    <p class="text-gray-600">Организация грузоперевозок за пределы страны по фиксированным тарифам.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Calculator Section -->
+    <section id="calc" class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-4xl font-bold text-center mb-8">Рассчитать стоимость перевозки</h2>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="from" class="block text-lg font-semibold mb-2">Откуда</label>
+                    <input type="text" id="from" class="w-full border border-gray-300 rounded-lg p-3 focus:ring focus:ring-yellow-500" placeholder="Город отправления">
+                </div>
+                <div>
+                    <label for="to" class="block text-lg font-semibold mb-2">Куда</label>
+                    <input type="text" id="to" class="w-full border border-gray-300 rounded-lg p-3 focus:ring focus:ring-yellow-500" placeholder="Город назначения">
+                </div>
+                <div>
+                    <label for="weight" class="block text-lg font-semibold mb-2">Вес груза (кг)</label>
+                    <input type="number" id="weight" class="w-full border border-gray-300 rounded-lg p-3 focus:ring focus:ring-yellow-500" placeholder="Введите вес">
+                </div>
+                <div class="md:col-span-2 text-center">
+                    <button type="submit" class="bg-yellow-500 text-black font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-600 transition duration-300">
+                        Рассчитать
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-white text-center">
+        <p>© 2023 Транспортная компания «ПК». Все права защищены.</p>
+    </footer>
+
     <script>
-        let currentSlide = 0;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
 
-        function showSlide(index) {
-            const slides = document.querySelector('.carousel-images');
-            const totalSlides = slides.children.length;
-            if (index >= totalSlides) currentSlide = 0;
-            else if (index < 0) currentSlide = totalSlides - 1;
-            else currentSlide = index;
-            slides.style.transform = `translateX(${-currentSlide * 100}%)`;
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        setInterval(nextSlide, 5000);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
