@@ -3,81 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин Продуктов</title>
+    <title>Ромашка - Продуктовый магазин</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Плавное появление секций */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
         .fade-in {
             opacity: 0;
-            transition: opacity 0.6s ease-in-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
         }
     </style>
 </head>
-<body class="bg-white font-sans overflow-x-hidden">
-    <nav class="sticky top-0 backdrop-blur-md p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold">Магазин Продуктов</div>
-            <div>
-                <a href="#catalog" class="text-gray-700 hover:text-blue-600 mx-4">Каталог</a>
-                <a href="#about" class="text-gray-700 hover:text-blue-600 mx-4">О нас</a>
-                <a href="#contact" class="text-gray-700 hover:text-blue-600 mx-4">Контакты</a>
-            </div>
-            <button class="bg-blue-600 text-white px-4 py-2 rounded">Корзина</button>
+<body class="bg-white">
+    <nav class="sticky top-0 bg-white backdrop-blur-lg shadow-lg p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Ромашка</h1>
+        <div>
+            <a href="#" class="text-blue-600 px-4">Главная</a>
+            <a href="#" class="text-blue-600 px-4">Контакты</a>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded">В корзину (0)</button>
         </div>
     </nav>
 
-    <header class="h-screen flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-500 text-white text-center">
-        <div>
-            <h1 class="text-5xl font-bold">Добро пожаловать в наш магазин!</h1>
-            <p class="mt-4 text-xl">Лучшие продукты для вашего стола.</p>
-            <a href="#catalog" class="mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded">Посмотреть продукты</a>
-        </div>
+    <header class="h-screen flex justify-center items-center bg-gradient-to-r from-green-400 to-blue-500 text-white text-center">
+        <h2 class="text-5xl font-bold">Добро пожаловать в Ромашку!</h2>
+        <p class="mt-4 text-xl">Ваш лучший выбор для покупок.</p>
     </header>
 
-    <section id="catalog" class="py-20 fade-in">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-10">Наши продукты</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="border rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://image.pollinations.ai/prompt/professional%20product%20photo%20%d0%b4%d0%be%d0%b1%d0%b0%d0%bb%d1%8f%d0%bb%d1%81%d1%8f%20%d0%a7%d1%82%d0%be%d0%b1%d1%8b%20%d1%81%d0%be%d0%b2%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9%20%d0%b1%d1%8b%d0%bb%20%d0%ba%d0%b0%d1%87%d0%b5%d1%81%d1%82%d0%b2%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9%20%d1%81%d0%b0%d0%b9%d1%82%2c%20isolated%20on%20white%20background%2c%20sharp%20focus%2c%20studio%20lighting%2c%20e-commerce%20style%2c%20high%20quality%2c%20real%20photo?width=800&height=800&seed=43367&nologo=true&model=flux" style="object-fit: cover; height: 200px; width: 100%;">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold">Добавлялся Чтобы современный был качественный сайт</h3>
-                        <p class="text-gray-600">Артикул: не указан</p>
-                        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">В корзину</button>
-                    </div>
+    <section class="p-8">
+        <h3 class="text-3xl font-semibold mb-6">Наши продукты</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="border rounded-lg overflow-hidden shadow-lg">
+                <img src="https://image.pollinations.ai/prompt/professional%20product%20photo%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%B0%D1%82%D1%8C%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%20%D1%87%D1%82%D0%BE%D0%B1%20%D0%BA%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0%20%D0%B1%D1%8B%D0%BB%D0%B0%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B0%D1%8F%2C%20isolated%20on%20white%20background%2C%20sharp%20focus%2C%20studio%20lighting%2C%20e-commerce%20style%2C%20high%20quality%2C%20real%20photo?width=800&height=800&seed=43536&nologo=true&model=flux" style="object-fit: cover; width: 100%; height: 200px;">
+                <div class="p-4">
+                    <h4 class="text-xl font-bold">Покупать товар чтоб корзина была рабочая</h4>
+                    <p class="text-gray-600">Артикул: не указан</p>
+                    <button class="bg-green-500 text-white px-4 py-2 mt-2 rounded">В корзину</button>
                 </div>
-                <!-- Добавьте дополнительные карточки товаров по аналогии с этой, если необходимо -->
             </div>
         </div>
     </section>
 
-    <footer class="py-10 bg-gray-100">
-        <div class="container mx-auto flex justify-between">
-            <div class="text-gray-600">© 2023 Магазин Продуктов</div>
-            <div>
-                <a href="#" class="mx-2 text-gray-600 hover:text-blue-600">Политика конфиденциальности</a>
-                <a href="#" class="mx-2 text-gray-600 hover:text-blue-600">Условия использования</a>
-            </div>
-        </div>
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>© 2023 Ромашка. Все права защищены.</p>
     </footer>
 
     <script>
-        // Плавное появление секций при прокрутке
-        const fadeInSections = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                    }
+                });
             });
-        });
-
-        fadeInSections.forEach(section => {
-            observer.observe(section);
+            fadeElements.forEach(el => observer.observe(el));
         });
     </script>
 </body>
