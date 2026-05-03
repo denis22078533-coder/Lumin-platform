@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интернет-магазин аптечных товаров</title>
+    <title>Транспортные услуги для компаний</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -14,13 +14,25 @@
             color: #333;
         }
         header {
-            background-color: #4a148c;
+            background: linear-gradient(90deg, #4a148c, #7c4dff);
             color: white;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
         }
         nav {
-            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: #7c4dff;
         }
         nav a {
             margin: 0 15px;
@@ -28,132 +40,154 @@
             text-decoration: none;
             font-weight: bold;
         }
-        .products {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
+        nav a:hover {
+            text-decoration: underline;
         }
-        .product-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: url('transport-bg.jpg') no-repeat center center/cover;
+            color: white;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
         }
-        .product-item img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
-            border-radius: 8px;
+        .hero h2 {
+            font-size: 2rem;
         }
-        .product-item h3 {
-            margin: 0;
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 15px;
         }
-        .product-item p {
-            margin: 5px 0;
-        }
-        .add-to-cart {
-            margin-left: auto;
-            padding: 10px;
+        .hero button {
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: #4a148c;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 1.1rem;
             cursor: pointer;
         }
-        footer {
+        .hero button:hover {
+            background-color: #7c4dff;
+        }
+        .services {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
             text-align: center;
+        }
+        .services h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .service-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
             padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .service-item h4 {
+            margin: 10px 0;
+        }
+        .cta {
+            text-align: center;
+            padding: 40px 20px;
             background-color: #4a148c;
             color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
         }
-        .user-account {
-            margin: 20px;
-            display: flex;
-            justify-content: space-between;
+        .cta h4 {
+            margin: 0;
+            font-size: 1.8rem;
         }
-        .account-link {
+        .cta button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #f5f5f5;
             color: #4a148c;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .cta button:hover {
+            background-color: #7c4dff;
+            color: white;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #7c4dff;
             text-decoration: none;
         }
-        @media (max-width: 600px) {
-            .products {
-                padding: 10px;
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
             }
-            .product-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .product-item img {
-                margin-bottom: 10px;
+            .services {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Интернет-магазин аптечных товаров</h1>
+        <h1>Транспортные Услуги</h1>
+        <p>Надежные решения для транспортных компаний</p>
         <nav>
-            <a href="#products">Каталог</a>
-            <a href="#account">Личный кабинет</a>
-            <a href="#cart">Корзина</a>
+            <a href="#services">Услуги</a>
+            <a href="#about">О нас</a>
+            <a href="#contact">Контакты</a>
         </nav>
     </header>
 
-    <div class="user-account" id="account">
-        <a href="#login" class="account-link">Вход</a>
-        <a href="#register" class="account-link">Регистрация</a>
-    </div>
+    <section class="hero">
+        <h2>Ваши логистические решения начинаются здесь</h2>
+        <p>Доставим товары вовремя, надежно и безопасно</p>
+        <button>Связаться с нами</button>
+    </section>
 
-    <div class="products" id="products">
-        <h2>Каталог лекарств</h2>
-        <div class="product-item">
-            <img src="medicine1.jpg" alt="Болеутоляющее">
-            <div>
-                <h3>Болеутоляющее</h3>
-                <p>Эффективное средство для снятия боли.</p>
-                <p>Цена: 250 руб.</p>
+    <section class="services" id="services">
+        <h3>Наши услуги</h3>
+        <div class="services-grid">
+            <div class="service-item">
+                <h4>Международные перевозки</h4>
+                <p>Доставка грузов в любую точку мира.</p>
             </div>
-            <button class="add-to-cart">Добавить в корзину</button>
-        </div>
-        <div class="product-item">
-            <img src="medicine2.jpg" alt="Простудные средства">
-            <div>
-                <h3>Простудные средства</h3>
-                <p>Помогает при симптомах простуды.</p>
-                <p>Цена: 300 руб.</p>
+            <div class="service-item">
+                <h4>Экспресс-доставка</h4>
+                <p>Срочные перевозки для вашего бизнеса.</p>
             </div>
-            <button class="add-to-cart">Добавить в корзину</button>
-        </div>
-        <div class="product-item">
-            <img src="medicine3.jpg" alt="Витамины">
-            <div>
-                <h3>Витамины</h3>
-                <p>Комплекс витаминов для укрепления здоровья.</p>
-                <p>Цена: 400 руб.</p>
+            <div class="service-item">
+                <h4>Складские услуги</h4>
+                <p>Ответственное хранение и обработка грузов.</p>
             </div>
-            <button class="add-to-cart">Добавить в корзину</button>
-        </div>
-        <div class="product-item">
-            <img src="medicine4.jpg" alt="Антибиотики">
-            <div>
-                <h3>Антибиотики</h3>
-                <p>Эффективные антибиотики для лечения заболеваний.</p>
-                <p>Цена: 500 руб.</p>
+            <div class="service-item">
+                <h4>Логистика под ключ</h4>
+                <p>Планирование и сопровождение всей цепочки поставок.</p>
             </div>
-            <button class="add-to-cart">Добавить в корзину</button>
         </div>
-    </div>
+    </section>
+
+    <section class="cta">
+        <h4>Хотите обсудить ваш проект? Свяжитесь с нами прямо сейчас!</h4>
+        <button>Получить консультацию</button>
+    </section>
 
     <footer>
-        <p>© 2026 Аптека. Все права защищены.</p>
-        <p><a href="#contact" style="color: white;">Связаться с нами</a></p>
+        <p>© 2026 Транспортные Услуги. Все права защищены. | <a href="#privacy">Политика конфиденциальности</a></p>
     </footer>
 </body>
 </html>
