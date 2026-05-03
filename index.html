@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аптека 2026</title>
+    <title>Интернет-магазин аптечных товаров</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -73,6 +73,15 @@
             bottom: 0;
             width: 100%;
         }
+        .user-account {
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .account-link {
+            color: #4a148c;
+            text-decoration: none;
+        }
         @media (max-width: 600px) {
             .products {
                 padding: 10px;
@@ -89,13 +98,18 @@
 </head>
 <body>
     <header>
-        <h1>Добро пожаловать в аптеку 2026!</h1>
+        <h1>Интернет-магазин аптечных товаров</h1>
         <nav>
             <a href="#products">Каталог</a>
-            <a href="#about">О нас</a>
-            <a href="#contact">Контакт</a>
+            <a href="#account">Личный кабинет</a>
+            <a href="#cart">Корзина</a>
         </nav>
     </header>
+
+    <div class="user-account" id="account">
+        <a href="#login" class="account-link">Вход</a>
+        <a href="#register" class="account-link">Регистрация</a>
+    </div>
 
     <div class="products" id="products">
         <h2>Каталог лекарств</h2>
