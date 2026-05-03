@@ -3,191 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Транспортные услуги для компаний</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Магазин Продуктов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+        /* Плавное появление секций */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
         }
-        header {
-            background: linear-gradient(90deg, #4a148c, #7c4dff);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            background-color: #7c4dff;
-        }
-        nav a {
-            margin: 0 15px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: url('transport-bg.jpg') no-repeat center center/cover;
-            color: white;
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
-        }
-        .hero h2 {
-            font-size: 2rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-top: 15px;
-        }
-        .hero button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4a148c;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
-        .hero button:hover {
-            background-color: #7c4dff;
-        }
-        .services {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .services h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .service-item {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .service-item h4 {
-            margin: 10px 0;
-        }
-        .cta {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #4a148c;
-            color: white;
-        }
-        .cta h4 {
-            margin: 0;
-            font-size: 1.8rem;
-        }
-        .cta button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #f5f5f5;
-            color: #4a148c;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
-        .cta button:hover {
-            background-color: #7c4dff;
-            color: white;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        footer a {
-            color: #7c4dff;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 768px) {
-            .hero {
-                padding: 40px 20px;
-            }
-            .services {
-                padding: 20px;
-            }
+        .fade-in.visible {
+            opacity: 1;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Транспортные Услуги</h1>
-        <p>Надежные решения для транспортных компаний</p>
-        <nav>
-            <a href="#services">Услуги</a>
-            <a href="#about">О нас</a>
-            <a href="#contact">Контакты</a>
-        </nav>
+<body class="bg-white font-sans overflow-x-hidden">
+    <nav class="sticky top-0 backdrop-blur-md p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold">Магазин Продуктов</div>
+            <div>
+                <a href="#catalog" class="text-gray-700 hover:text-blue-600 mx-4">Каталог</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 mx-4">О нас</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 mx-4">Контакты</a>
+            </div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded">Корзина</button>
+        </div>
+    </nav>
+
+    <header class="h-screen flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-500 text-white text-center">
+        <div>
+            <h1 class="text-5xl font-bold">Добро пожаловать в наш магазин!</h1>
+            <p class="mt-4 text-xl">Лучшие продукты для вашего стола.</p>
+            <a href="#catalog" class="mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded">Посмотреть продукты</a>
+        </div>
     </header>
 
-    <section class="hero">
-        <h2>Ваши логистические решения начинаются здесь</h2>
-        <p>Доставим товары вовремя, надежно и безопасно</p>
-        <button>Связаться с нами</button>
-    </section>
-
-    <section class="services" id="services">
-        <h3>Наши услуги</h3>
-        <div class="services-grid">
-            <div class="service-item">
-                <h4>Международные перевозки</h4>
-                <p>Доставка грузов в любую точку мира.</p>
-            </div>
-            <div class="service-item">
-                <h4>Экспресс-доставка</h4>
-                <p>Срочные перевозки для вашего бизнеса.</p>
-            </div>
-            <div class="service-item">
-                <h4>Складские услуги</h4>
-                <p>Ответственное хранение и обработка грузов.</p>
-            </div>
-            <div class="service-item">
-                <h4>Логистика под ключ</h4>
-                <p>Планирование и сопровождение всей цепочки поставок.</p>
+    <section id="catalog" class="py-20 fade-in">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">Наши продукты</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="border rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://image.pollinations.ai/prompt/professional%20product%20photo%20%d0%b4%d0%be%d0%b1%d0%b0%d0%bb%d1%8f%d0%bb%d1%81%d1%8f%20%d0%a7%d1%82%d0%be%d0%b1%d1%8b%20%d1%81%d0%be%d0%b2%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9%20%d0%b1%d1%8b%d0%bb%20%d0%ba%d0%b0%d1%87%d0%b5%d1%81%d1%82%d0%b2%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9%20%d1%81%d0%b0%d0%b9%d1%82%2c%20isolated%20on%20white%20background%2c%20sharp%20focus%2c%20studio%20lighting%2c%20e-commerce%20style%2c%20high%20quality%2c%20real%20photo?width=800&height=800&seed=43367&nologo=true&model=flux" style="object-fit: cover; height: 200px; width: 100%;">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">Добавлялся Чтобы современный был качественный сайт</h3>
+                        <p class="text-gray-600">Артикул: не указан</p>
+                        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">В корзину</button>
+                    </div>
+                </div>
+                <!-- Добавьте дополнительные карточки товаров по аналогии с этой, если необходимо -->
             </div>
         </div>
     </section>
 
-    <section class="cta">
-        <h4>Хотите обсудить ваш проект? Свяжитесь с нами прямо сейчас!</h4>
-        <button>Получить консультацию</button>
-    </section>
-
-    <footer>
-        <p>© 2026 Транспортные Услуги. Все права защищены. | <a href="#privacy">Политика конфиденциальности</a></p>
+    <footer class="py-10 bg-gray-100">
+        <div class="container mx-auto flex justify-between">
+            <div class="text-gray-600">© 2023 Магазин Продуктов</div>
+            <div>
+                <a href="#" class="mx-2 text-gray-600 hover:text-blue-600">Политика конфиденциальности</a>
+                <a href="#" class="mx-2 text-gray-600 hover:text-blue-600">Условия использования</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Плавное появление секций при прокрутке
+        const fadeInSections = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        fadeInSections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
