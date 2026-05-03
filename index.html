@@ -40,6 +40,21 @@
             height: 100px;
             margin-right: 20px;
         }
+        .photo-gallery {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .photo-gallery h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .photo-gallery img {
+            width: calc(33% - 10px);
+            margin: 5px;
+            display: inline-block;
+            vertical-align: middle;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -60,7 +75,7 @@
         <h1>Добро пожаловать в нашу кофейню!</h1>
         <nav>
             <a href="#menu">Меню</a>
-            <a href="#about">О нас</a>
+            <a href="#gallery">Галерея</a>
             <a href="#contact">Контакт</a>
         </nav>
         <img class="header-image" src="header-coffee.jpg" alt="Кофе с молочной пенкой">
@@ -100,6 +115,16 @@
                 <p>Цена: 220 руб.</p>
             </div>
         </div>
+    </div>
+
+    <div class="photo-gallery" id="gallery">
+        <h2>Галерея</h2>
+        <img src="gallery1.jpg" alt="Фотография уютного интерьера кофейни">
+        <img src="gallery2.jpg" alt="Кофе и десерт на столе">
+        <img src="gallery3.jpg" alt="Мастер приготовления кофе за работой">
+        <img src="gallery4.jpg" alt="Кофейная чашка с молочным рисунком">
+        <img src="gallery5.jpg" alt="Друзья наслаждаются кофе в кофейне">
+        <img src="gallery6.jpg" alt="Кофейные зерна крупным планом">
     </div>
 
     <footer>
