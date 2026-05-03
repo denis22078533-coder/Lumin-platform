@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кофейня</title>
+    <title>Аптека</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             background-color: #f5f5f5;
         }
         header {
-            background-color: #3e2723;
+            background-color: #4a148c;
             color: white;
             padding: 20px;
             text-align: center;
@@ -22,113 +22,83 @@
         }
         nav a {
             margin: 0 15px;
-            color: #3e2723;
+            color: #4a148c;
             text-decoration: none;
         }
-        .menu {
+        .products {
             max-width: 800px;
             margin: auto;
             padding: 20px;
         }
-        .menu-item {
+        .product-item {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
         }
-        .menu-item img {
+        .product-item img {
             width: 100px;
             height: 100px;
             margin-right: 20px;
         }
-        .photo-gallery {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        .photo-gallery h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .photo-gallery img {
-            width: calc(33% - 10px);
-            margin: 5px;
-            display: inline-block;
-            vertical-align: middle;
-        }
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #3e2723;
+            background-color: #4a148c;
             color: white;
             position: relative;
             bottom: 0;
             width: 100%;
         }
-        .header-image {
-            width: 100%;
-            height: auto;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Добро пожаловать в нашу кофейню!</h1>
+        <h1>Добро пожаловать в нашу аптеку!</h1>
         <nav>
-            <a href="#menu">Меню</a>
-            <a href="#gallery">Галерея</a>
+            <a href="#products">Продукты</a>
+            <a href="#about">О нас</a>
             <a href="#contact">Контакт</a>
         </nav>
-        <img class="header-image" src="header-coffee.jpg" alt="Кофе с молочной пенкой">
     </header>
 
-    <div class="menu" id="menu">
-        <h2>Меню</h2>
-        <div class="menu-item">
-            <img src="coffee1.jpg" alt="Эспрессо">
+    <div class="products" id="products">
+        <h2>Продукты</h2>
+        <div class="product-item">
+            <img src="medicine1.jpg" alt="Болеутоляющее">
             <div>
-                <h3>Эспрессо</h3>
-                <p>Классический итальянский эспрессо, насыщенный вкус.</p>
-                <p>Цена: 150 руб.</p>
+                <h3>Болеутоляющее</h3>
+                <p>Эффективное средство для снятия боли.</p>
+                <p>Цена: 250 руб.</p>
             </div>
         </div>
-        <div class="menu-item">
-            <img src="coffee2.jpg" alt="Капучино">
+        <div class="product-item">
+            <img src="medicine2.jpg" alt="Простудные средства">
             <div>
-                <h3>Капучино</h3>
-                <p>Кофе с молочной пенкой и шоколадной стружкой.</p>
-                <p>Цена: 200 руб.</p>
+                <h3>Простудные средства</h3>
+                <p>Помогает при симптомах простуды.</p>
+                <p>Цена: 300 руб.</p>
             </div>
         </div>
-        <div class="menu-item">
-            <img src="coffee3.jpg" alt="Латте">
+        <div class="product-item">
+            <img src="medicine3.jpg" alt="Витамины">
             <div>
-                <h3>Латте</h3>
-                <p>Мягкий кофе с большим количеством молока.</p>
-                <p>Цена: 180 руб.</p>
+                <h3>Витамины</h3>
+                <p>Комплекс витаминов для укрепления здоровья.</p>
+                <p>Цена: 400 руб.</p>
             </div>
         </div>
-        <div class="menu-item">
-            <img src="coffee4.jpg" alt="Мокко">
+        <div class="product-item">
+            <img src="medicine4.jpg" alt="Антибиотики">
             <div>
-                <h3>Мокко</h3>
-                <p>Кофе с шоколадом и взбитыми сливками.</p>
-                <p>Цена: 220 руб.</p>
+                <h3>Антибиотики</h3>
+                <p>Эффективные антибиотики для лечения заболеваний.</p>
+                <p>Цена: 500 руб.</p>
             </div>
         </div>
-    </div>
-
-    <div class="photo-gallery" id="gallery">
-        <h2>Галерея</h2>
-        <img src="gallery1.jpg" alt="Фотография уютного интерьера кофейни">
-        <img src="gallery2.jpg" alt="Кофе и десерт на столе">
-        <img src="gallery3.jpg" alt="Мастер приготовления кофе за работой">
-        <img src="gallery4.jpg" alt="Кофейная чашка с молочным рисунком">
-        <img src="gallery5.jpg" alt="Друзья наслаждаются кофе в кофейне">
-        <img src="gallery6.jpg" alt="Кофейные зерна крупным планом">
     </div>
 
     <footer>
-        <p>© 2023 Кофейня. Все права защищены.</p>
+        <p>© 2023 Аптека. Все права защищены.</p>
         <p><a href="#contact" style="color: white;">Связаться с нами</a></p>
     </footer>
 </body>
