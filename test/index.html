@@ -1,45 +1,83 @@
-Я понимаю задачу, но должен быть честен с тобой.
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фитнес-клуб — Тарифы и Абонементы</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Добро пожаловать в наш фитнес-клуб!</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#tariffs">Тарифы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-**Что я могу делать:**
-- Редактировать HTML/CSS/JS код сайта (как сейчас)
-- Генерировать код для любых файлов
-- Показывать тебе готовый код для вставки
+    <main>
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>О клубе</h2>
+                <p>Наш фитнес-клуб предлагает современное оборудование, профессиональных тренеров и уютную атмосферу для занятий спортом.</p>
+            </div>
+        </section>
 
-**Что я НЕ могу делать самостоятельно:**
-- Напрямую обращаться к GitHub API и коммитить файлы
-- Читать содержимое репозитория `denis22078533-coder/moi-umniy-lumin`
-- Изменять файл `src/lumen/LumenApp.tsx` в твоём репозитории
+        <section id="tariffs" class="tariffs-section">
+            <div class="container">
+                <h2>Тарифы</h2>
+                <div class="tariff">
+                    <h3>Базовый</h3>
+                    <p>1 месяц — 2 500 ₽</p>
+                    <ul>
+                        <li>Доступ к кардиозоне</li>
+                        <li>Свободные веса</li>
+                        <li>Групповые занятия</li>
+                    </ul>
+                    <button class="btn">Купить</button>
+                </div>
+                <div class="tariff">
+                    <h3>Премиум</h3>
+                    <p>3 месяца — 6 900 ₽</p>
+                    <ul>
+                        <li>Все преимущества базового тарифа</li>
+                        <li>Персональные тренировки</li>
+                        <li>Бассейн и SPA</li>
+                    </ul>
+                    <button class="btn">Купить</button>
+                </div>
+                <div class="tariff">
+                    <h3>VIP</h3>
+                    <p>12 месяцев — 23 000 ₽</p>
+                    <ul>
+                        <li>Все преимущества премиум тарифа</li>
+                        <li>Неограниченный доступ</li>
+                        <li>Личный менеджер</li>
+                    </ul>
+                    <button class="btn">Купить</button>
+                </div>
+            </div>
+        </section>
 
-Это ограничение платформы — у меня нет подключённого GitHub токена с правами записи в твой репозиторий.
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Контакты</h2>
+                <p>Телефон: +7 (123) 456-78-90</p>
+                <p>Адрес: ул. Фитнеса, д. 10, г. Москва</p>
+                <p>Email: info@fitness-club.ru</p>
+            </div>
+        </section>
+    </main>
 
----
-
-**Вот готовый код изменения для `LumenApp.tsx`** — найди в файле строку с названием проекта и замени:
-
-```tsx
-// Найди что-то вроде:
-<title>Lumen</title>
-// или
-const APP_NAME = "Lumen"
-// или в JSX:
-<h1>Lumen</h1>
-
-// Замени на:
-<title>LUMIN PRO</title>
-// или
-const APP_NAME = "LUMIN PRO"
-// или:
-<h1>LUMIN PRO</h1>
-```
-
----
-
-**Как это сделать через GitHub UI (30 секунд):**
-
-1. Открой `github.com/denis22078533-coder/moi-umniy-lumin`
-2. Найди `src/lumen/LumenApp.tsx`
-3. Нажми карандаш ✏️ (Edit)
-4. Замени название на `LUMIN PRO`
-5. Нажми **Commit changes**
-
-Если скинешь содержимое файла `LumenApp.tsx` сюда — я покажу точную строку для замены.
+    <footer>
+        <div class="container">
+            <p>© 2023 Фитнес-клуб. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
