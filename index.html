@@ -1,60 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Muravey 2.0 — AI Web Builder</title>
-    <meta name="description" content="Muravey 2.0 — SaaS платформа для создания сайтов с помощью ИИ"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta property="og:title" content="Поехали!">
-    <meta property="og:description" content="Ваш личный программист, который делает сайты в 30 раз быстрее обычного.">
-    <meta property="og:image:width" content="4800">
-    <meta property="og:image:height" content="2520">
-    <meta property="og:image:alt" content="Поехали! — сервис разработки сайтов с помощью ИИ">
-    <meta property="og:image" content="https://cdn.poehali.dev/intertnal/img/og.png">
-    <meta name="twitter:image" content="https://cdn.poehali.dev/intertnal/img/og.png">
+import { useState, useRef, useEffect } from "react";
+import Icon from "@/components/ui/icon";
+import {
+  useSettings, getSettings, type AiProvider, getActiveProviderConfig,
+  MODELS_BY_PROVIDER, PROVIDER_DEFAULTS,
+  IMAGE_ENGINE_DEFAULTS, MEDIA_ENGINE_DEFAULTS,
+  DESIGNER_PROMPT, ENGINEER_PROMPT, type PromptPreset,
+} from "@/lib/store";
+import { chat, callLlmOnce, extractHtml, type ChatMessage } from "@/lib/ai";
+import {
+  importZip, exportZip, findIndexHtml, loadFiles, saveFiles, filesContextForAi,
+  loadMeta, saveMeta, clearProject, buildVirtualPreview, parsePackageDeps,
+  type ProjectFiles, type ProjectMeta,
+} from "@/lib/files";
+import { commitToGitHub, pingGitHub } from "@/lib/github";
+import { toast } from "sonner";
+import { AntTyping } from "@/components/AntTyping";
+import { BackgroundAnt } from "@/components/BackgroundAnt";
+import { detectIntent, generateImage, generateVideo, generateAudio, fileToBase64 } from "@/lib/media";
+import { pingSupabase, applySql } from "@/lib/supabase";
+import { AuthGate } from "@/components/AuthGate";
+import { SupportWidget } from "@/components/SupportWidget";
+import {
+  useAuth, signOut, addModerator, removeModerator, transferOwnership,
+  setTokensFor, banUser, deleteUser, checkContent, logAudit, clearAudit, consumeToken, syncTopBalance,
+} from "@/lib/auth";
+import { useSupport, addMessage, resolveThread, markReadForAdmin } from "@/lib/support";
+import {
+  useIntegrations, addIntegration, updateIntegration, removeIntegration,
+  pingIntegration, buildLeadInjector, getIntegrationsSnapshot, KIND_LABEL, KIND_HINT, type IntegrationKind,
+} from "@/lib/integrations";
 
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
+type Tab = "chat" | "core" | "projects";
+type CoreTab = "ai" | "github" | "payments" | "system" | "logs" | "users" | "dialogs" | "integrations";
+type Device = "desktop" | "mobile";
+type Msg = {
+  role: "user" | "ai";
+  text: string;
+  image?: string;
+  video?: string;
+  audio?: string;
+  status?: "loading";
+  actions?: string[];
+  progress?: number;
+  sql?: string;
+};
 
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-
-  </head>
-
-<body>
-<div id="root"></div>
-<script type="module" src="/src/main.tsx"></script>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-        m[i] = m[i] || function () {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        m[i].l = 1 * new Date();
-        for (var j = 0; j < document.scripts.length; j++) {
-            if (document.scripts[j].src === r) {
-                return;
-            }
-        }
-        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-    ym(101026698, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true,
-        trackHash: true
-    });
-</script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/101026698" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
-</body>
-</html>
+function stripToolCmds(text: string): string {
+  let t = text;
+  // WRITE/EDIT блоки с кодом — целиком
+  t = t.replace(/(?:^|\n)\s*(?:💉\s*)?\[?(?:WRITE|EDIT)\]?:\s*[^\n`]+\s*\n+
